@@ -1,0 +1,10 @@
+#wrapper{
+    width: 80%;
+    margin: auto;
+    background-color:green; 
+}
+
+.container{
+    background-color:#c1d7d7;
+       width: 100%;
+   }
