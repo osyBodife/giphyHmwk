@@ -17,6 +17,7 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="assets/css/style.css">
+    assests/css/style.css
 <style>
 
 .container{
@@ -35,10 +36,11 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
     <div class="container" >
-        <div class="row">
+        <div class="row" id="imageBtns">
             button display
 
-
+<br>
+<br>
         </div>
 
         <div class="row">
@@ -54,7 +56,7 @@
       
                         <div class="form-group">
                               <label for="animal">Add an Animal</label>
-                              <input type="text" class="form-control" id="search" aria-describedby="animal" >
+                              <input type="text" class="form-control" id="search"  >
                               
                             </div>
 
@@ -62,7 +64,7 @@
                                 
 
                  
-                  <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+                  <button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>
                 </form>
 
 
@@ -80,7 +82,38 @@
 
 
 
-    <script></script>
+  
+    
+    <!-- <script src="assets/javascript/giphy.js"> </script>   -->
+<script>
+
+    
+    // Create an initial display button list variable
+    var displayList = 0;
+    //create an event Listener
+    $("#submitBtn").on("click", function(event) {
+        event.preventDefault();
+    
+       
+          // Get value from the input box
+          var inputText = $("#search").val().trim();
+
+          //create a button and asssign it to a variable
+          var inputBtn=$("<Button>");
+            //assign attributes
+            inputBtn.attr("id", "btn-" + displayList);
+            //put a name/label on the button
+            inputBtn.text(inputText);
+            console.log(inputText);
+    
+    
+    
+      // Add to the toDoCount
+      displayList++;
+    });
+</script>
+    
+   
 </body>
 
 </html>
