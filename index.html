@@ -17,13 +17,9 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="assets/css/style.css">
-    assests/css/style.css
+   
 <style>
 
-.container{
-    background-color:#c1d7d7;
-       width: 100%;
-   }
 
 </style>
 
@@ -37,13 +33,15 @@
         <![endif]-->
     <div class="container" >
         <div class="row" id="imageBtns">
-            button display
+            
+<br>
+<br>
 
-<br>
-<br>
+
         </div>
 
-        <div class="row">
+        <div class="row" id="imageArea">
+                
             <div class="col-md-8">
                 image area
 
@@ -65,6 +63,8 @@
 
                  
                   <button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>
+                  <br>
+                  <br>
                 </form>
 
 
@@ -89,22 +89,25 @@
 
     
     // Create an initial display button list variable
-    var displayList = 0;
+    var displayList = 1;
     //create an event Listener
     $("#submitBtn").on("click", function(event) {
         event.preventDefault();
     
        
           // Get value from the input box
-          var inputText = $("#search").val().trim();
+          var userText = $("#search").val().trim();
 
           //create a button and asssign it to a variable
           var inputBtn=$("<Button>");
             //assign attributes
             inputBtn.attr("id", "btn-" + displayList);
+            //inputBtn.css('backgroud-color', 'red');
             //put a name/label on the button
-            inputBtn.text(inputText);
-            console.log(inputText);
+            inputBtn.text(userText);
+            //console.log(inputBtn);
+
+            $("#imageBtns").append(inputBtn);
     
     
     

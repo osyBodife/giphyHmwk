@@ -1,0 +1,13 @@
+
+.container{
+    background-color:#c1d7d7;
+       width: 100%;
+   }
+
+   #imageBtns{
+       margin-left: 10px;
+       
+   }
+   #imageArea{
+       margin-top: 30px;
+   }
