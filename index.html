@@ -158,7 +158,7 @@
 
 
         // Create an initial display button list variable
-        var displayList = 1;
+        var displayList = 2;
         //create an event Listener
         $("#submitBtn").on("click", function (event) {
             event.preventDefault();
@@ -174,6 +174,8 @@
             var inputBtn = $("<Button>");
             //assign attributes
             inputBtn.attr("id", "btn-" + displayList);
+            //assign button id as varialbe
+            var BtnId="btn-"+ displayList;
             //inputBtn.css('backgroud-color', 'red');
             //put a name/label on the button
             inputBtn.text(userText);
@@ -217,6 +219,7 @@
                     //console.log (giffs);
                     for(var n=0; n<9; n++){
                     $('#giphyImages').append('<img src=" '+ giffs[n].images.original.url +'"  />')
+                   // $('#giphyImages').append('<img src=" '+ giffs[n].images.original_still.url +'"  />')
  
                     }
 
@@ -228,29 +231,34 @@
 
 
         }
-        //javascript, jQuery
+        /*
 
-        //var xhr = $.get("http://api.giphy.com/v1/gifs/search?q=ryan+gosling&api_key=YOUR_API_KEY&limit=5");
-        //xhr.done(function(data) { console.log("success got data", data); });
+        
+				animaArray=["cat", "dog", "lion", "lion"];
+				for (var i=0;i<animaArray.length; i++){
+				//create button
+				var btn=$("<buuton>");
+				
+				//assign attributes eg Id and Value
+				var attrValues = {
+                    Id: "btn-"+animaArray[i],
+                    value: animaArray[i],
+                    name: animaArray[i]
+                }
+				searchTerm=animaArray[i];				
 
-        // Here we run our AJAX call to the giphy API
-        /*  $.ajax({
-              url: queryURL,
-              method: "GET"
-          })
-              // We store all of the retrieved data inside of an object called "response"
-              .then(function (response) {
-
-                  // Log the queryURL
-                  console.log(queryURL);
-
-                  // Log the resulting object
-                 // console.log(response);
+               $("#btn-1").click(function(){                    
+                   
+                    getGiphyData(searchTerm);
+                    
+                });
+				
+				
+				}
+				
+        
 
 
-
-
-              });
 
               */
 
