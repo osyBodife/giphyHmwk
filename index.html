@@ -213,11 +213,11 @@
                     console.log(response);
                     //response.data.url
                     //create variable to hold data from ajax call
-                    var giffs=response;
+                    var giffs=response.data;
                     //console.log (giffs);
                     for(var n=0; n<9; n++){
-                    $('#giphyImages').append("<img src='+ giffs[n].images.original.url '/>");
-
+                    $('#giphyImages').append('<img src=" '+ giffs[n].images.original.url +'"  />')
+ 
                     }
 
 

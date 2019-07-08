@@ -1,6 +1,6 @@
 
 .container{
-    background-color:#00e600;
+    background-color:black;
        width: 100%;
    }
 
@@ -10,4 +10,10 @@
    }
    #imageArea{
        margin-top: 30px;
+   }
+
+   img{
+    height: 350px;
+    width: 350px;
+      
    }
