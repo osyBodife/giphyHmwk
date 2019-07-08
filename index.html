@@ -26,8 +26,8 @@
 
 
 </head>
+<body onload="initialPageLoad()">
 
-<body>
     <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -43,7 +43,7 @@
         <div class="row" id="imageArea">
                 
             <div class="col-md-8">
-                image area
+                
 
             </div>
             <div class="col-md-4">
@@ -92,7 +92,34 @@
     <!-- <script src="assets/javascript/giphy.js"> </script>   -->
 <script>
 
-    
+    // create an array of few animals to display as home page
+    //this would display before any user input
+    var animaArray=["Cat", "Dog"];   
+    //create function to display initial animal list
+    function initialPageLoad(){
+        for(var i=0; i<animaArray.length; i++){
+            //create a Button
+            var aniBtn=$("<button>");
+            //assign attributes
+            aniBtn.attr("Id", "Btn-" + [i]) ;
+            //console.log(aniBtn);
+            //write a label
+            aniBtn.text(animaArray[i]);
+            //display button on home page            
+            $("#imageBtns").append(aniBtn);
+            //style the buttons
+            aniBtn.css( "padding", "0px 20px 5px 20px");
+            aniBtn.css( "background-color", "#66ff66");
+
+
+
+        }
+    };
+
+
+
+
+
     // Create an initial display button list variable
     var displayList = 1;
     //create an event Listener
@@ -102,6 +129,9 @@
        
           // Get value from the input box
           var userText = $("#search").val().trim();
+          // add new entry to the array
+          animaArray.push(userText);
+          //console.log(animaArray);
 
           //create a button and asssign it to a variable
           var inputBtn=$("<Button>");
@@ -112,7 +142,7 @@
             inputBtn.text(userText);
             //console.log(inputBtn);
             inputBtn.css( "padding", "0px 20px 5px 20px");
-            inputBtn.css( "background-color", "red");
+            inputBtn.css( "background-color", "#66ff66");
 
             $("#imageBtns").append(inputBtn);
     
