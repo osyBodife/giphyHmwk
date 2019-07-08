@@ -41,7 +41,7 @@
 
         </div>
 
-        <div class="row" id="imageArea">
+        <div class="row" id="giphyImages">
 
             <div class="col-md-8">
 
@@ -133,16 +133,17 @@
                 //style the buttons
                 aniBtn.css("padding", "0px 20px 5px 20px");
                 aniBtn.css("background-color", "#66ff66");
-                //call the function
-               
+                //call the giphy function              
 
                 $("#btn-0").click(function(){
+                    searchTerm="cat"
                     
-                    getGiphyData();
+                    getGiphyData(searchTerm);
                 });
                 $("#btn-1").click(function(){
+                    searchTerm="dog"
                    
-                    getGiphyData();
+                    getGiphyData(searchTerm);
                     
                 });
                 
@@ -189,12 +190,15 @@
             displayList++;
         });
         //creatr function to get gipghy api
-        function getGiphyData() {
-            //searchTerm="Zibra"
+        function getGiphyData(searchTerm) {
+            //var searchTerm="Lion"
             //api key obtained from registering my app at developer.giphy.com
             var APIKey = "lISwnQ5TdGTfXd9Ex4N17L98lbq6KRRi";
             // create a variable to hold the url
-            var queryURL = "http://api.giphy.com/v1/gifs/search?api_key=lISwnQ5TdGTfXd9Ex4N17L98lbq6KRRi&q=lion";
+   
+
+
+            var queryURL = "http://api.giphy.com/v1/gifs/search?api_key=lISwnQ5TdGTfXd9Ex4N17L98lbq6KRRi&limit=9&q="+ searchTerm ;
             $.ajax({
                 url: queryURL,
                 method: "GET"
@@ -207,6 +211,14 @@
 
                     // Log the resulting object
                     console.log(response);
+                    //response.data.url
+                    //create variable to hold data from ajax call
+                    var giffs=response;
+                    //console.log (giffs);
+                    for(var n=0; n<9; n++){
+                    $('#giphyImages').append("<img src='+ giffs[n].images.original.url '/>");
+
+                    }
 
 
 
