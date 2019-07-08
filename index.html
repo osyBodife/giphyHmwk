@@ -17,54 +17,55 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="assets/css/style.css">
-   
-<style>
+
+    <style>
 
 
-</style>
+    </style>
 
 
 
 </head>
+
 <body onload="initialPageLoad()">
 
     <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-    <div class="container" >
+    <div class="container">
         <div class="row" id="imageBtns">
-            
-<br>
-<br>
+
+            <br>
+            <br>
 
 
         </div>
 
         <div class="row" id="imageArea">
-                
+
             <div class="col-md-8">
-                
+
 
             </div>
             <div class="col-md-4">
-     
+
                 <form>
-                                                
-
-      
-                        <div class="form-group">
-                              <label for="animal">Add an Animal</label>
-                              <input type="text" class="form-control" id="search"  >
-                              
-                            </div>
 
 
-                                
 
-                 
-                  <button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>
-                  <br>
-                  <br>
+                    <div class="form-group">
+                        <label for="animal">Add an Animal</label>
+                        <input type="text" class="form-control" id="search">
+
+                    </div>
+
+
+
+
+
+                    <button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>
+                    <br>
+                    <br>
                 </form>
 
 
@@ -78,7 +79,7 @@
 
         <br>
         <br>
-        
+
 
 
     </div>
@@ -87,73 +88,172 @@
 
 
 
-  
-    
+
+
     <!-- <script src="assets/javascript/giphy.js"> </script>   -->
-<script>
+    <script>
 
-    // create an array of few animals to display as home page
-    //this would display before any user input
-    var animaArray=["Cat", "Dog"];   
-    //create function to display initial animal list
-    function initialPageLoad(){
-        for(var i=0; i<animaArray.length; i++){
-            //create a Button
-            var aniBtn=$("<button>");
-            //assign attributes
-            aniBtn.attr("Id", "Btn-" + [i]) ;
-            //console.log(aniBtn);
-            //write a label
-            aniBtn.text(animaArray[i]);
-            //display button on home page            
-            $("#imageBtns").append(aniBtn);
-            //style the buttons
-            aniBtn.css( "padding", "0px 20px 5px 20px");
-            aniBtn.css( "background-color", "#66ff66");
+        // create an array of few animals to display as home page
+        //this would display before any user input
+        var animaArray = ["Cat", "Dog"];
+        //create a variable to hold button id 
+        var btnId;
+        //create a variable object to hold multiple attribute values
+        var attrValues;
+        //create function to display initial animal list
+        //create variable for all queries
+        var searchTerm;
+        function initialPageLoad() {
+            for (var i = 0; i < animaArray.length; i++) {
+                //create a Button
+                var aniBtn = $("<button>");
+                //assign attributes
+                btnId = "btn-" + [i];
+                //aniBtn.attr("Id", "btn-" + [i]);
+                //aniBtn.attr("Id", btnId);
+                /*
+                aniBtn.attr({
+                    Id: btnId,
+                    value: animaArray[i],
+                   name: animaArray[i]
+                });
+                */
+                //create a variable object to hold multiple attribute values
+                var attrValues = {
+                    Id: btnId,
+                    value: animaArray[i],
+                    name: animaArray[i]
+                }
+                aniBtn.attr(attrValues);
+                //console.log(attrValues.Id);
+                //write a label
+                aniBtn.text(animaArray[i]);
+                //display button on home page            
+                $("#imageBtns").append(aniBtn);
+                //style the buttons
+                aniBtn.css("padding", "0px 20px 5px 20px");
+                aniBtn.css("background-color", "#66ff66");
+                //call the function
+               
+
+                $("#btn-0").click(function(){
+                    
+                    getGiphyData();
+                });
+                $("#btn-1").click(function(){
+                   
+                    getGiphyData();
+                    
+                });
+                
 
 
 
-        }
-    };
+            }
+        };
 
 
 
 
 
-    // Create an initial display button list variable
-    var displayList = 1;
-    //create an event Listener
-    $("#submitBtn").on("click", function(event) {
-        event.preventDefault();
-    
-       
-          // Get value from the input box
-          var userText = $("#search").val().trim();
-          // add new entry to the array
-          animaArray.push(userText);
-          //console.log(animaArray);
+        // Create an initial display button list variable
+        var displayList = 1;
+        //create an event Listener
+        $("#submitBtn").on("click", function (event) {
+            event.preventDefault();
 
-          //create a button and asssign it to a variable
-          var inputBtn=$("<Button>");
+
+            // Get value from the input box
+            var userText = $("#search").val().trim();
+            // add new entry to the array
+            animaArray.push(userText);
+            //console.log(animaArray);
+
+            //create a button and asssign it to a variable
+            var inputBtn = $("<Button>");
             //assign attributes
             inputBtn.attr("id", "btn-" + displayList);
             //inputBtn.css('backgroud-color', 'red');
             //put a name/label on the button
             inputBtn.text(userText);
             //console.log(inputBtn);
-            inputBtn.css( "padding", "0px 20px 5px 20px");
-            inputBtn.css( "background-color", "#66ff66");
+            inputBtn.css("padding", "0px 20px 5px 20px");
+            inputBtn.css("background-color", "#66ff66");
 
             $("#imageBtns").append(inputBtn);
-    
-    
-    
-      // Add to the toDoCount
-      displayList++;
-    });
-</script>
-    
-   
+
+
+
+
+            // Add to the toDoCount
+            displayList++;
+        });
+        //creatr function to get gipghy api
+        function getGiphyData() {
+            //searchTerm="Zibra"
+            //api key obtained from registering my app at developer.giphy.com
+            var APIKey = "lISwnQ5TdGTfXd9Ex4N17L98lbq6KRRi";
+            // create a variable to hold the url
+            var queryURL = "http://api.giphy.com/v1/gifs/search?api_key=lISwnQ5TdGTfXd9Ex4N17L98lbq6KRRi&q=lion";
+            $.ajax({
+                url: queryURL,
+                method: "GET"
+            })
+                // We store all of the retrieved data inside of an object called "response"
+                .then(function (response) {
+
+                    // Log the queryURL
+                    //console.log(queryURL);
+
+                    // Log the resulting object
+                    console.log(response);
+
+
+
+
+                });
+
+
+
+        }
+        //javascript, jQuery
+
+        //var xhr = $.get("http://api.giphy.com/v1/gifs/search?q=ryan+gosling&api_key=YOUR_API_KEY&limit=5");
+        //xhr.done(function(data) { console.log("success got data", data); });
+
+        // Here we run our AJAX call to the giphy API
+        /*  $.ajax({
+              url: queryURL,
+              method: "GET"
+          })
+              // We store all of the retrieved data inside of an object called "response"
+              .then(function (response) {
+
+                  // Log the queryURL
+                  console.log(queryURL);
+
+                  // Log the resulting object
+                 // console.log(response);
+
+
+
+
+              });
+
+              */
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
 </body>
 
 </html>
