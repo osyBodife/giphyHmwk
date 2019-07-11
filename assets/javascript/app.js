@@ -75,7 +75,7 @@ $(document).on("click", ".btnClass", function () {
             let results = response.data;
             //consider putting an alert for empty search
             if(results.length===0){
-                alert("Sorry there is giphy for your current search")
+                alert("Sorry there is NO giphy images for your current search")
             }else{
             //loop thru entire results
             for (var i = 0; i < results.length; i++) {
@@ -102,7 +102,7 @@ $(document).on("click", ".btnClass", function () {
                 imgDiv.append(p);
                 //append imahe to image div
                 imgDiv.append(animalImage);
-                //append images unto image area of the page
+                //append images into image area of the page
                 $("#giphyImages").append(imgDiv);
             }
 
