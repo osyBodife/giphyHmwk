@@ -1,7 +1,7 @@
 
 // create an array of few animals to display as home page
 //this would display before any user input
-var animalArray = ["cat", "dog", "horse", "monkey"];
+var animalArray = ["cat", "dog", "horse", "monkey", "goat"];
 //create a variable to hold button id 
 //create function to display initial animal list
 //create variable for all queries
@@ -87,7 +87,7 @@ $(document).on("click", ".btnClass", function () {
                 let p= $("<p>").text("Ratings: " + imageRating);
                 //assign p tag attributes
                 p.addClass("ratingClass");
-                
+                /*
                 let animated = results[i].images.fixed_height.url;
                 let still = results[i].images.fixed_height.url;
                 //create the image tag
@@ -97,10 +97,20 @@ $(document).on("click", ".btnClass", function () {
                 animalImage.attr("data-still", still);
                 animalImage.attr("data-image", animated);
                 animalImage.attr("data-state", still);
+                */
+                //create the image tag
+                let animalImage = $("<img>");
+				animalImage.attr("src", results[i].images.fixed_height_small_still.url);
+				//pause images
+				animalImage.attr("data-still", results[i].images.fixed_height_small_still.url);
+				//animated images
+			    animalImage.attr("data-animate", results[i].images.fixed_height_small.url);
+				//how images come in, already paused
+			    animalImage.attr("data-state", "still");                
                 animalImage.addClass("animal-image");
                 //append rating unto the div
                 imgDiv.append(p);
-                //append imahe to image div
+                //append image to image div
                 imgDiv.append(animalImage);
                 //append images into image area of the page
                 $("#giphyImages").append(imgDiv);
@@ -118,19 +128,17 @@ $(document).on("click", ".btnClass", function () {
 
 
     //set the state from still to animated when clickling on images
-    $(document).on("click", "animalImage", function () {
-        let state = $(this).attr("data-state");
-        if (state === "still") {
-            $(this).attr("src", $(this).attr("data-animated"));
-            $(this).attr("data-state", "animate");
-        } else {
-            $(this).attr("src", $(this).attr("data-state"));
-            $(this).attr("data-state", "still");
-
-
+    $(document).on("click",".animal-image", function() {
+        var state = $(this).attr('data-state');
+        if (state == 'still') {
+            $(this).attr('src', $(this).data('animate'));
+            $(this).attr('data-state', 'animate');
+        }else {
+            $(this).attr('src', $(this).data('still'));
+            $(this).attr('data-state', 'still');
         }
-
-    });
+    
+        });
 
 
 
