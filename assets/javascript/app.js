@@ -1,7 +1,7 @@
 
 // create an array of few animals to display as home page
 //this would display before any user input
-var animalArray = ["Cat", "Dog", "Horse", "Monkey"];
+var animalArray = ["cat", "dog", "horse", "monkey"];
 //create a variable to hold button id 
 //create function to display initial animal list
 //create variable for all queries
@@ -30,16 +30,23 @@ function createBtns() {
 //create a new button on form submit
 $("#submitBtn").on("click", function (event) {
     event.preventDefault();
-    var userText = $("#search").val().trim();
+    var userText = $("#search").val().trim().toLowerCase();
     if (userText == "") {
         return false;
     } else {
         //add to original array
-        animalArray.push(userText);
+        //check if the name exists
+        if(animalArray.includes(userText)==true){
+            alert("Error! the name alreay exists");
+        }else{
+            animalArray.push(userText);
         // clear existing button to avoid dupilcate
         $("#imageBtns").empty();
         //call function to create button
         createBtns();
+
+        }
+        
 
     }
 
