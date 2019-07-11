@@ -1,6 +1,6 @@
 
 .container{
-    background-color:black;
+    background-color:#660066;
        width: 100%;
    }
 
@@ -16,5 +16,20 @@
     height: 200px;
     width: 200px;
     padding: 10px;
+    margin-left:10px;
       
    }
+
+   .ratingClass{
+       color: white;
+       margin-left:20px;
+   }
+   #form-label{
+       color:white;
+
+   }
+
+   .btnClass{
+    padding:0px 20px 5px 20px;
+    background-color:#66ff66;
+    }
