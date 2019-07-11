@@ -3,7 +3,7 @@
 
 // create an array of few animals to display as home page
 //this would display before any user input
-var animaArray = ["Cat", "Dog"];
+var animaArray = ["Cat", "Dog", "Horse"];
 //create a variable to hold button id 
 var btnId;
 //create a variable object to hold multiple attribute values
@@ -19,6 +19,8 @@ function initialPageLoad() {
         //btnId = "btn-" + [i];
         //btnId = "btn-" + animaArray.indexOf(animaArray[i]);
         aniBtn.attr("Id", "btn-" + [i]);
+        aniBtn.attr("data-animal-type" ,animaArray[i]);
+        console.log(aniBtn);
 
         //console.log(attrValues.Id);
         //write a label
@@ -30,31 +32,33 @@ function initialPageLoad() {
         //style the buttons
         aniBtn.css("padding", "0px 20px 5px 20px");
         aniBtn.css("background-color", "#66ff66");
-        //call the giphy function              
-
-        $("#btn-0").click(function () {
-            searchTerm = "cat"
-
-            getGiphyData(searchTerm);
-        });
-        $("#btn-1").click(function () {
-            searchTerm = "dog"
-
-            getGiphyData(searchTerm);
-
-        });
+        //call the giphy function         
 
 
 
 
     }
+  
+    $("#btn-0").click(function () {
+        searchTerm = "cat"
+       $("#giphyImages").empty();
+
+        getGiphyData(searchTerm);
+    });
+    $("#btn-1").click(function () {
+        searchTerm = "dog"
+        $("#giphyImages").empty();
+
+        getGiphyData(searchTerm);
+
+    });
 };
 
 
 
 
 
-// Create an initial display button list variable
+// Create a button on form submission
 var displayList = 2;
 //create an event Listener
 $("#submitBtn").on("click", function (event) {
@@ -75,6 +79,7 @@ $("#submitBtn").on("click", function (event) {
     //bind a click event
     $(inputBtn).on("click", function () {
         //call get giphy function
+        $("#giphyImages").empty();
         getGiphyData(userText);
     });
 
@@ -98,7 +103,7 @@ function getGiphyData(searchTerm) {
     //var APIKey = "lISwnQ5TdGTfXd9Ex4N17L98lbq6KRRi";
     // create a variable to hold the url
 
-    var queryURL = "http://api.giphy.com/v1/gifs/search?api_key=lISwnQ5TdGTfXd9Ex4N17L98lbq6KRRi&rating=g&limit=9&q=" + searchTerm;
+    var queryURL = "http://api.giphy.com/v1/gifs/search?api_key=lISwnQ5TdGTfXd9Ex4N17L98lbq6KRRi&limit=9&q=" + searchTerm;
     $.ajax({
         url: queryURL,
         method: "GET"
