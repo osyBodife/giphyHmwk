@@ -54,9 +54,9 @@ $("#submitBtn").on("click", function (event) {
 });
 //create a function to get gipghy api
 $(document).on("click", ".btnClass", function () {
-
+    //remove exiting images to avoid area being popluated with unwanted images
     $("#giphyImages").empty();
-    //make all image  button unactive
+    //make all image  buttons unactive
     $(".btnClass").removeClass("active");
     //make the current image active
     $(this).addClass("active");
@@ -102,9 +102,9 @@ $(document).on("click", ".btnClass", function () {
                 animalImage.attr("data-state", "still"); 
                 //add class to use for event Listerner               
                 animalImage.addClass("animal-image");
-                //append rating unto the div
+                //append rating unto the image div
                 imgDiv.append(p);
-                //append image to image div
+                //append image to images div
                 imgDiv.append(animalImage);
                 //append images into image area of the page
                 $("#giphyImages").append(imgDiv);
