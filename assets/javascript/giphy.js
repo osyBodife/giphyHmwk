@@ -63,7 +63,7 @@ $(document).on("click", ".btnClass", function () {
     //get the value of button from the data attribute
     //assign it to a variable
     let searchTerm = $(this).attr("data-type");
-    let queryURL = "http://api.giphy.com/v1/gifs/search?api_key=lISwnQ5TdGTfXd9Ex4N17L98lbq6KRRi&limit=10&q=" + searchTerm;
+    let queryURL = "https://api.giphy.com/v1/gifs/search?api_key=lISwnQ5TdGTfXd9Ex4N17L98lbq6KRRi&limit=10&q=" + searchTerm;
     //make an ajax call
     $.ajax({
         url: queryURL,
