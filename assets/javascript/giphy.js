@@ -1,7 +1,7 @@
 
 // create an array of few animals to display as home page
 //this would display before any user input
-var animalArray = ["cat", "dog", "horse", "monkey", "goat"];
+var animalArray = ["cat", "dog", "horse", "monkey", "goat","lion"];
 //create function to create buttons
 //display the button
 function createBtns() {
