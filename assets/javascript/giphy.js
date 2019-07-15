@@ -47,12 +47,16 @@ $("#submitBtn").on("click", function (event) {
         createBtns();
 
         }
-        form.name.value="";
         
 
     }
+    //clear form field after submission
+    $('#giphyForm input[type="text"]').val('');
 
 });
+
+
+
 //create a function to get gipghy api
 $(document).on("click", ".btnClass", function () {
     //remove exiting images to avoid area being popluated with unwanted images

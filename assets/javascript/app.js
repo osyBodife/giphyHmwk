@@ -50,8 +50,13 @@ $("#submitBtn").on("click", function (event) {
         
 
     }
-
+    //clear form field after submission
+    $('#giphyForm input[type="text"]').val('');
 });
+
+
+
+
 //create a function to get gipghy api
 $(document).on("click", ".btnClass", function () {
 
