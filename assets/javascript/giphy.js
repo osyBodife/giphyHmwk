@@ -47,6 +47,7 @@ $("#submitBtn").on("click", function (event) {
         createBtns();
 
         }
+        form.name.value="";
         
 
     }
